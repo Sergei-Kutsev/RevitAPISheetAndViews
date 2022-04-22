@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Assembly>RevitAPISheetAndViews.dll</Assembly>
+		<AddInId>3EAE7136-FE5E-4066-B68F-89B585D07B88</AddInId>
+		<FullClassName>RevitAPISheetAndViews.Main</FullClassName>
+		<VendorId>ADSK</VendorId>
+		<Text>Создать лист и разместить на нем виды</Text>
+	</AddIn>
+</RevitAddIns>
