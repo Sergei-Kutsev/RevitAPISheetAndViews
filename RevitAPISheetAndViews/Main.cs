@@ -1,6 +1,7 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using System;
 
 namespace RevitAPISheetAndViews
 {
@@ -9,8 +10,20 @@ namespace RevitAPISheetAndViews
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            var mainView = new MainView(commandData);
-            mainView.ShowDialog();
+            try
+            {
+                var mainView = new MainView(commandData);
+                mainView.ShowDialog();
+            }
+            catch (Autodesk.Revit.Exceptions.OperationCanceledException)
+            {
+                return Result.Cancelled;
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                return Result.Failed;
+            }
             return Result.Succeeded;
         }
     }
