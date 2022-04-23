@@ -5,8 +5,60 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RevitAPISheetAndViews"
              mc:Ignorable="d" 
-             Height="450" Width="800">
-    <Grid>
-            
-    </Grid>
+             Height="600" Width="350"
+        Title="Размещение видов на листе">
+
+    <StackPanel>
+        <Label Content="Создать новый лист (выберите формат)" HorizontalAlignment = "Center" Margin = "5"/>
+        <ComboBox ItemsSource="{Binding AllSheetTypes}" 
+                  SelectedValue="{Binding SelectedNewSheet}" 
+                  Margin="5" VerticalAlignment="Top" 
+                  DisplayMemberPath="Name"/>
+
+
+
+        <Label Content="ИЛИ" HorizontalAlignment = "Center" Margin = "5,5,0,5"/>
+
+        <Label Content="Выбрать существующий лист" HorizontalAlignment = "Center" Margin = "5"/>
+        <ComboBox ItemsSource="{Binding AllSheetInModel}" 
+                  SelectedValue="{Binding SelectedExistingSheet}" 
+                  Margin="5" VerticalAlignment="Top" 
+                  DisplayMemberPath="Name"/>
+
+        <Label Content="Выберите параметр листа для заполнения" HorizontalAlignment="Center" Margin="5"/>
+        <ComboBox ItemsSource="{Binding SheetParameters}" 
+                  SelectedValue="{Binding SelectedSheetParameter}" 
+                  Margin="5" VerticalAlignment="Top" 
+                  DisplayMemberPath="Name"/>
+
+        <Label Content="Введите данные для заполнения параметра"/>
+        <TextBox Text="{Binding FirstSheetParameterName}" Margin="5"/>
+
+
+        <Label Content="Выбрать виды для размещения на листе" HorizontalAlignment = "Center" Margin = "5"/>
+
+        <ListBox ItemsSource="{Binding AllViewsInModel}"
+         SelectionMode="Extended"
+         DisplayMemberPath="Name"
+         MaxHeight="200"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"
+         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 Margin="5">
+            <!--SelectionMode="Extended" поможет выбирать множество объектов
+            DisplayMemberPath="Name" выводим в качестве имени название спецификаций-->
+
+            <ListBox.ItemContainerStyle>
+                <!--чтобы увидеть какие виды отмечены в окне-->
+                <Style TargetType="ListBoxItem">
+                    <!--для всех отмеченных элементов-->
+                    <Setter Property="IsSelected"
+                            Value="{Binding SelectedViewsInModel}"/>
+                    <!--должно быть свойство IsSelected которое привязывается к IsSelected-->
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+
+
+    </StackPanel>
 </Window>
