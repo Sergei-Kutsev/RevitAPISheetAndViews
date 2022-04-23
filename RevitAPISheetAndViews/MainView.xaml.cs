@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace RevitAPISheetAndViews
 {
-    /// <summary>
-    /// Логика взаимодействия для MainView.xaml
-    /// </summary>
     public partial class MainView : Window
     {
         public MainView(ExternalCommandData commandData)
