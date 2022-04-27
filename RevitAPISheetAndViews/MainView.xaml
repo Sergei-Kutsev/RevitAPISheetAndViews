@@ -25,16 +25,18 @@
                   Margin="5" VerticalAlignment="Top" 
                   DisplayMemberPath="Name"/>
 
+        
         <Label Content="Выберите параметр листа для заполнения" HorizontalAlignment="Center" Margin="5"/>
         <ComboBox ItemsSource="{Binding SheetParameters}" 
                   SelectedValue="{Binding SelectedSheetParameter}" 
                   Margin="5" VerticalAlignment="Top" 
                   DisplayMemberPath="Name"/>
 
+        
         <Label Content="Введите данные для заполнения параметра"/>
         <TextBox Text="{Binding FirstSheetParameterName}" Margin="5"/>
 
-
+        
         <Label Content="Выбрать виды для размещения на листе" HorizontalAlignment = "Center" Margin = "5"/>
 
         <ListBox ItemsSource="{Binding AllViewsInModel}"
@@ -46,7 +48,6 @@
                  Margin="5">
             <!--SelectionMode="Extended" поможет выбирать множество объектов
             DisplayMemberPath="Name" выводим в качестве имени название спецификаций-->
-
             <ListBox.ItemContainerStyle>
                 <!--чтобы увидеть какие виды отмечены в окне-->
                 <Style TargetType="ListBoxItem">
@@ -57,7 +58,9 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-
+        
+        
+        <Button Content="Применить" Width="100" Margin="10"/>
 
 
     </StackPanel>
